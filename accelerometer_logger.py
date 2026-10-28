@@ -29,6 +29,10 @@ import board
 import adafruit_msa3xx
 import digitalio
 
+# set up blinky led
+led = digitalio.DigitalInOut(board.LED)
+led.direction = digitalio.Direction.OUTPUT
+
 # Blink the LED slowly to indicate a problem.
 def slowblink(blinkrate=1):
     while True:
@@ -45,10 +49,6 @@ except:
     print('Error: could not initialize accelerometer, check connections.')
     slowblink(2)
 
-# set up blinky led
-led = digitalio.DigitalInOut(board.LED)
-led.direction = digitalio.Direction.OUTPUT
-
 # Open file
 try:
     f = open("/sd/acceldata.csv","w")
@@ -60,12 +60,12 @@ while True:  # Repeat forever
   led.value = True  # Turn on LED
   (ax,ay,az) = accelerometer.acceleration
   print(f'{ax}, {ay}, {az}')       # Print acceleration components to serial connection
-    try:
-        f.write(f'{ax}, {ay}, {az}\n')   # Write acceleration components to SD card
-        f.flush()  # Forces the data to be written immediately
-    except:
-        print('Error: could not write to SD card.  Is it inserted?')
-        slowblink()
+  try:
+    f.write(f'{ax}, {ay}, {az}\n')   # Write acceleration components to SD card
+    f.flush()  # Forces the data to be written immediately
+  except:
+    print('Error: could not write to SD card.  Is it inserted?')
+    slowblink()
 
   led.value = False # Turn off LED
   time.sleep(1./sample_rate)
