@@ -3,5 +3,5 @@ This repo contains software and 3-d design files to allow you to build an accele
 This project includes 3-d design files for the case, assembly instructions, and CircuitPython code.
 
 * [accelerometer_logger.py](accelerometer_logger.py): [CircuitPython](https://circuitpython.org/) code to control the data logger.
-* [Adalogger Case.3mf](Adalogger Case.3mf): 3-d printing file for the case.  Intended for printing in PLA plastic on any common FDM printer.
-* [Adalogger and Case.step](Adalogger and Case.step): 3-d design files for the project.  Can be edited in any full-featured CAD tool.
+* [adalogger_case.3mf](adalogger_case.3mf): 3-d printing file for the case.  Intended for printing in PLA plastic on any common FDM printer.
+* [adalogger_and_case.step](adalogger_and_case.step): 3-d design files for the project.  Can be edited in any full-featured CAD tool.
